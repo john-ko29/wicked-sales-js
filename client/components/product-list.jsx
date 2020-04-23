@@ -17,6 +17,10 @@ class ProductList extends React.Component {
         });
       });
   }
+
+  componentDidMount() {
+    this.getProducts();
+  }
 }
 
 export default ProductList;
