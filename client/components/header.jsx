@@ -2,8 +2,9 @@ import React from 'react';
 
 function Header(props) {
   return (
-    <header>
-      <h3 className='text-light bg-dark'><span className='font-weight-bold'>$</span>Wicked Sales</h3>
+    <header className='text-light bg-dark d-flex justify-content-between'>
+      <h3 className='ml-5'><span className='font-weight-bold'>$</span>Wicked Sales</h3>
+      <h3 className='mr-5'>{props.cartItemCount} <i className='fas fa-shopping-cart'></i></h3>
     </header>
   );
 }
