@@ -24,7 +24,7 @@ export default class App extends React.Component {
       );
     } else if (this.state.view.name === 'details') {
       return (
-        <ProductDetails param={this.state.view.params} />
+        <ProductDetails params={this.state.view.params} setView={this.setView}/>
       );
     }
   }

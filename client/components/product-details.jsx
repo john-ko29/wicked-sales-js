@@ -14,7 +14,7 @@ class ProductDetails extends React.Component {
   }
 
   getProductDetail() {
-    fetch(`/api/products/${this.props.param.productId}`)
+    fetch(`/api/products/${this.props.params.productId}`)
       .then(response => response.json())
       .then(data => {
         this.setState({
@@ -28,7 +28,7 @@ class ProductDetails extends React.Component {
       const product = this.state.product;
       return (
         <div className="productDetails m-4">
-          <p className='text-secondary'>&lt; Back to Catalog</p>
+          <p className='text-secondary' onClick={() => this.props.setView('catalog', {})}>&lt; Back to Catalog</p>
           <div className="row">
             <img src={product.image} className='col detailImage'/>
             <div className='col d-flex flex-column'>
