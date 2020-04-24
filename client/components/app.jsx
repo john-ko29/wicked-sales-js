@@ -9,8 +9,10 @@ export default class App extends React.Component {
     };
   }
 
-  componentDidMount() {
-    fetch('/api/products');
+  setView(name, params) {
+    this.setState({
+      view: { name, params }
+    });
   }
 
   render() {
