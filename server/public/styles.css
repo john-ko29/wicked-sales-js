@@ -10,5 +10,5 @@
 
 .detailImage {
   height: 500px;
-  object-fit: contain
+  object-fit: contain;
 }
