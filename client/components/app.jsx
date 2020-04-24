@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './header';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
 
@@ -34,14 +35,17 @@ export default class App extends React.Component {
   }
 
   render() {
+    let productPage = null;
     if (this.state.view.name === 'catalog') {
-      return (
-        <ProductList setView={this.setView}/>
-      );
+      productPage = <ProductList setView={this.setView} />;
     } else if (this.state.view.name === 'details') {
-      return (
-        <ProductDetails params={this.state.view.params} setView={this.setView}/>
-      );
+      productPage = <ProductDetails params={this.state.view.params} setView={this.setView} />;
     }
+    return (
+      <div>
+        <Header cartItemCount={this.state.cart.length} />
+        {productPage}
+      </div>
+    );
   }
 }

@@ -30,8 +30,8 @@ class ProductDetails extends React.Component {
         <div className="productDetails m-4">
           <p className='text-secondary' onClick={() => this.props.setView('catalog', {})}>&lt; Back to Catalog</p>
           <div className="row">
-            <img src={product.image} className='col detailImage'/>
-            <div className='col d-flex flex-column'>
+            <img src={product.image} className='col-6 detailImage'/>
+            <div className='col-6 d-flex flex-column'>
               <h2>{product.name}</h2>
               <h4 className='text-secondary'>${product.price}</h4>
               <p>{product.shortDescription}</p>
