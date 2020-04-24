@@ -12,3 +12,16 @@
   height: 500px;
   object-fit: contain;
 }
+
+.cartItem {
+  height: 300px;
+}
+
+.dot {
+  border: 1px dotted grey;
+}
+
+.cartImage  {
+  height: 100%;
+  object-fit: contain;
+}
