@@ -95,7 +95,7 @@ app.post('/api/carts', (req, res, next) => {
     .then(result => {
       const product = result.rows[0];
       if (!product) {
-        throw new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404);
+        throw new ClientError('cannot find "productId"', 400);
       } else {
         if (req.session.cartId) {
           return ({ price: product.price, cartId: req.session.cartId });
