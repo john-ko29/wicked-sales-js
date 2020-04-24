@@ -57,13 +57,6 @@ app.get('/api/products/:productId', (req, res, next) => {
 });
 
 app.get('/api/carts', (req, res, next) => {
-  // const sql = `
-  // SELECT    "cartId", "createdAt"
-  // FROM      "carts"
-  // `;
-  // db.query(sql)
-  //   .then(result => res.json(result.rows))
-  //   .catch(err => next(err));
   if (req.session.cartId) {
     const sql = `
     select "c"."cartItemId",
@@ -81,7 +74,7 @@ app.get('/api/carts', (req, res, next) => {
       .then(result => res.json(result.rows))
       .catch(err => next(err));
   } else {
-    return [];
+    return res.json([]);
   }
 });
 
@@ -102,9 +95,9 @@ app.post('/api/carts', (req, res, next) => {
     .then(result => {
       const product = result.rows[0];
       if (!product) {
-        res.status(400).json({
+        throw (res.status(400).json({
           error: `"productId" ${cart.productId} is not found`
-        });
+        }));
       } else {
         if (req.session.cartId) {
           return ({ price: product.price, cartId: req.session.cartId });
