@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductListItem from './product-list-item';
 
 class ProductList extends React.Component {
   constructor(props) {
@@ -20,6 +21,26 @@ class ProductList extends React.Component {
 
   componentDidMount() {
     this.getProducts();
+  }
+
+  render() {
+    return (
+      <div className='d-flex row flex-wrap'>
+        {
+          this.state.products.map(product => {
+            return (
+              <ProductListItem
+                key={product.productId}
+                name={product.name}
+                price={product.price}
+                image={product.image}
+                description={product.shortDescription}
+              />
+            );
+          })
+        }
+      </div>
+    );
   }
 }
 
