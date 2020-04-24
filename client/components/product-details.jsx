@@ -6,10 +6,15 @@ class ProductDetails extends React.Component {
     this.state = {
       product: null
     };
+    this.getProductDetail = this.getProductDetail.bind(this);
   }
 
   componentDidMount() {
-    fetch(`/api/products/${this.props.productId}`)
+    this.getProductDetail();
+  }
+
+  getProductDetail() {
+    fetch(`/api/products/${this.props.param.productId}`)
       .then(response => response.json())
       .then(data => {
         this.setState({
@@ -19,9 +24,25 @@ class ProductDetails extends React.Component {
   }
 
   render() {
-    return (
-      null
-    );
+    if (this.state.product) {
+      const product = this.state.product;
+      return (
+        <div className="productDetails m-4">
+          <p className='text-secondary'>&lt; Back to Catalog</p>
+          <div className="row">
+            <img src={product.image} className='col detailImage'/>
+            <div className='col d-flex flex-column'>
+              <h2>{product.name}</h2>
+              <h4 className='text-secondary'>${product.price}</h4>
+              <p>{product.shortDescription}</p>
+            </div>
+            <p>{product.longDescription}</p>
+          </div>
+        </div>
+      );
+    } else {
+      return null;
+    }
   }
 }
 

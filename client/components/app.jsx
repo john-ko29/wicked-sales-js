@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductList from './product-list';
+import ProductDetails from './product-details';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -17,9 +18,14 @@ export default class App extends React.Component {
   }
 
   render() {
-
-    return (
-      <ProductList setView={this.setView}/>
-    );
+    if (this.state.view.name === 'catalog') {
+      return (
+        <ProductList setView={this.setView}/>
+      );
+    } else if (this.state.view.name === 'details') {
+      return (
+        <ProductDetails param={this.state.view.params} />
+      );
+    }
   }
 }
