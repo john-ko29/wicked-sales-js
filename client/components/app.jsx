@@ -7,6 +7,7 @@ export default class App extends React.Component {
     this.state = {
       view: { name: 'catalog', params: {} }
     };
+    this.setView = this.setView.bind(this);
   }
 
   setView(name, params) {
@@ -17,7 +18,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <ProductList />
+      <ProductList setView={this.setView}/>
     );
   }
 }
