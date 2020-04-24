@@ -12,11 +12,12 @@ export default class App extends React.Component {
 
   setView(name, params) {
     this.setState({
-      view: { name, params }
+      view: { name: name, params: params }
     });
   }
 
   render() {
+
     return (
       <ProductList setView={this.setView}/>
     );
