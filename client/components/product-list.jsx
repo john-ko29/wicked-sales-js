@@ -25,7 +25,7 @@ class ProductList extends React.Component {
 
   render() {
     return (
-      <div className='d-flex row flex-wrap'>
+      <div className='productList d-flex flex-wrap justify-content-around'>
         {
           this.state.products.map(product => {
             return (

@@ -1,0 +1,9 @@
+.card {
+  width: 30%;
+  height: 60vh;
+}
+
+.card > img {
+  height: 50%;
+  object-fit: contain;
+}
