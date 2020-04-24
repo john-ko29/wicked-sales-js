@@ -1,0 +1,9 @@
+.productCard {
+  width: 30%;
+  height: 500px;
+}
+
+.cardImg {
+  height: 50%;
+  object-fit: contain;
+}
