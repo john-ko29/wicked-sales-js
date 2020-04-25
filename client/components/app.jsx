@@ -53,6 +53,24 @@ export default class App extends React.Component {
       });
   }
 
+  placeOrder(customer) {
+    const response = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(customer)
+    };
+    fetch('/api/orders', response)
+      .then(response => {
+        this.setState({
+          cart: []
+        });
+        this.setView('catalog', {});
+        response.json();
+      });
+  }
+
   render() {
     let productPage = null;
     if (this.state.view.name === 'catalog') {
