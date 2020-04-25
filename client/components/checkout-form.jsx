@@ -12,7 +12,9 @@ class CheckoutForm extends React.Component {
 
   render() {
     return (
-      null
+      <div className='m-4'>
+        <h1>My Cart</h1>
+      </div>
     );
   }
 }

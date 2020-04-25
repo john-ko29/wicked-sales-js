@@ -20,7 +20,10 @@ function CartSummary(props) {
           );
         })
       }
-      <h3>Total Cost: ${props.totalPrice}</h3>
+      <div className="row d-flex justify-content-between">
+        <h3>Total Cost: ${props.totalPrice}</h3>
+        <button className='btn btn-primary w-25' onClick={() => props.setView('checkout', {})}>Checkout</button>
+      </div>
     </div>
   );
 }
