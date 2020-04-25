@@ -140,6 +140,50 @@ app.post('/api/carts', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.post('/api/orders', (req, res, next) => {
+  if (req.session.cartId) {
+    const order = req.body;
+    if (!order.name) {
+      return res.status(400).json({
+        error: 'name must be included'
+      });
+    }
+    if (!order.creditCard) {
+      return res.status(400).json({
+        error: 'Credit Card must be included'
+      });
+    }
+    if (!order.shippingAddress) {
+      return res.status(400).json({
+        error: 'Shipping Address must be included'
+      });
+    }
+    const sql = `
+      INSERT INTO "orders" ("cartId", "name",  "creditCard", "shippingAddress")
+      VALUES ($1, $2, $3, $4)
+      returning *
+    `;
+    const params = [req.session.cartId, order.name, order.creditCard, order.shippingAddress];
+    db.query(sql, params)
+      .then(result => {
+        const gradeResult = result.rows;
+        delete req.session.cartId;
+        res.status(201).json(gradeResult);
+        delete req.session.cartId;
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).json({
+          error: 'An unexpected error occurred.'
+        });
+      });
+  } else {
+    return res.status(400).json({
+      error: '"cartId" does not exist'
+    });
+  }
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
