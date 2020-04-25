@@ -15,6 +15,8 @@ export default class App extends React.Component {
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.placeOrder = this.placeOrder.bind(this);
+    this.getTotalPrice = this.getTotalPrice.bind(this);
   }
 
   componentDidMount() {
@@ -72,14 +74,25 @@ export default class App extends React.Component {
       });
   }
 
+  getTotalPrice() {
+    let totalPrice = 0;
+    if (this.state.cart[0]) {
+      for (let i = 0; i < this.state.cart.length; i++) {
+        totalPrice += this.state.cart[i].price;
+      }
+    }
+    return totalPrice;
+  }
+
   render() {
+    const totalPrice = this.getTotalPrice();
     let productPage = null;
     if (this.state.view.name === 'catalog') {
       productPage = <ProductList setView={this.setView} />;
     } else if (this.state.view.name === 'details') {
       productPage = <ProductDetails params={this.state.view.params} setView={this.setView} addToCart={this.addToCart} />;
     } else if (this.state.view.name === 'cart') {
-      productPage = <CartSummary cart={this.state.cart} setView={this.setView}/>;
+      productPage = <CartSummary cart={this.state.cart} setView={this.setView} totalPrice={totalPrice} />;
     } else if (this.state.view.name === 'checkout') {
       productPage = <CheckoutForm />;
     }
