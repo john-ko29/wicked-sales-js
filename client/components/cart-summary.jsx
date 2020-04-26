@@ -2,12 +2,7 @@ import React from 'react';
 import CartSummaryItem from './cart-summary-item';
 
 function CartSummary(props) {
-  let totalPrice = 0;
-  if (props.cart[0]) {
-    for (let i = 0; i < props.cart.length; i++) {
-      totalPrice += props.cart[i].price;
-    }
-  }
+
   return (
     <div className='m-4 d-flex flex-column'>
       <p className='text-secondary mb-3' onClick={() => props.setView('catalog', {})}>&lt; Back to Catalog</p>
@@ -25,7 +20,10 @@ function CartSummary(props) {
           );
         })
       }
-      <h3>Total Cost: ${totalPrice}</h3>
+      <div className="row d-flex justify-content-between">
+        <h3>Total Cost: ${props.totalPrice}</h3>
+        <button className='btn btn-primary w-25' onClick={() => props.setView('checkout', {})}>Checkout</button>
+      </div>
     </div>
   );
 }

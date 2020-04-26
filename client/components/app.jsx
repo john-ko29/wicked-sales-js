@@ -3,6 +3,7 @@ import Header from './header';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
+import CheckoutForm from './checkout-form';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,6 +15,8 @@ export default class App extends React.Component {
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.placeOrder = this.placeOrder.bind(this);
+    this.getTotalPrice = this.getTotalPrice.bind(this);
   }
 
   componentDidMount() {
@@ -53,14 +56,45 @@ export default class App extends React.Component {
       });
   }
 
+  placeOrder(customer) {
+    const response = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(customer)
+    };
+    fetch('/api/orders', response)
+      .then(response => {
+        this.setState({
+          cart: []
+        });
+        this.setView('catalog', {});
+        response.json();
+      });
+  }
+
+  getTotalPrice() {
+    let totalPrice = 0;
+    if (this.state.cart[0]) {
+      for (let i = 0; i < this.state.cart.length; i++) {
+        totalPrice += this.state.cart[i].price;
+      }
+    }
+    return totalPrice;
+  }
+
   render() {
+    const totalPrice = this.getTotalPrice();
     let productPage = null;
     if (this.state.view.name === 'catalog') {
       productPage = <ProductList setView={this.setView} />;
     } else if (this.state.view.name === 'details') {
       productPage = <ProductDetails params={this.state.view.params} setView={this.setView} addToCart={this.addToCart} />;
     } else if (this.state.view.name === 'cart') {
-      productPage = <CartSummary cart={this.state.cart} setView={this.setView}/>;
+      productPage = <CartSummary cart={this.state.cart} setView={this.setView} totalPrice={totalPrice} />;
+    } else if (this.state.view.name === 'checkout') {
+      productPage = <CheckoutForm totalPrice={totalPrice} setView={this.setView} placeOrder={this.placeOrder}/>;
     }
     return (
       <div>
