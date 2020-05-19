@@ -1,6 +1,10 @@
 # wicked-sales-js
 A full stack Node.js and React shopping cart app.
 
+### Live Demo
+
+Try the application live at https://wicked-sales.johnkode.com/
+
 ### Technologies Used
 * React.js
 * Webpack 4
