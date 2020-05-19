@@ -5,13 +5,14 @@ function CartSummary(props) {
 
   return (
     <div className='m-4 d-flex flex-column'>
-      <p className='text-secondary mb-3' onClick={() => props.setView('catalog', {})}>&lt; Back to Catalog</p>
+      <p className='pointer text-secondary mb-3' onClick={() => props.setView('catalog', {})}>&lt; Back to Catalog</p>
       <h1>Cart Items</h1>
       {
         props.cart.map(cartItem => {
           return (
             <CartSummaryItem
               key={cartItem.cartItemId}
+              id={cartItem.cartItemId}
               name={cartItem.name}
               price={cartItem.price}
               image={cartItem.image}

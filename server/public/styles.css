@@ -1,6 +1,11 @@
 .productCard {
   width: 30%;
   height: 500px;
+  cursor: pointer;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .cardImg {
