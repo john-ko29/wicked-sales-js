@@ -28,12 +28,12 @@ class ProductDetails extends React.Component {
       const product = this.state.product;
       return (
         <div className="productDetails m-4">
-          <p className='pointer text-secondary' onClick={() => this.props.setView('catalog', {})}>&lt; Back to Catalog</p>
+          <p className='text-secondary' onClick={() => this.props.setView('catalog', {})}>&lt; Back to Catalog</p>
           <div className="row">
             <img src={product.image} className='col-6 detailImage'/>
             <div className='col-6 d-flex flex-column'>
               <h2>{product.name}</h2>
-              <h4 className='text-secondary'>${product.price}</h4>
+              <h4 className='text-secondary'>${(product.price / 100).toFixed(2)}</h4>
               <p>{product.shortDescription}</p>
               <button className='btn btn-primary w-25' onClick={() => this.props.addToCart({ productId: product.productId })}>Add to Cart</button>
             </div>

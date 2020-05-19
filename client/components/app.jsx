@@ -81,7 +81,7 @@ export default class App extends React.Component {
         totalPrice += this.state.cart[i].price;
       }
     }
-    return totalPrice;
+    return (totalPrice / 100).toFixed(2);
   }
 
   render() {

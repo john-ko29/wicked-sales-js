@@ -14,7 +14,7 @@ function CartSummary(props) {
               key={cartItem.cartItemId}
               id={cartItem.cartItemId}
               name={cartItem.name}
-              price={cartItem.price}
+              price={(cartItem.price / 100).toFixed(2)}
               image={cartItem.image}
               description={cartItem.shortDescription}
             />
