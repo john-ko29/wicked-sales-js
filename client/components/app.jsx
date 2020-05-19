@@ -51,7 +51,7 @@ export default class App extends React.Component {
       .then(response => response.json())
       .then(data => {
         const cart = this.state.cart.slice();
-        cart.push(data);
+        cart.push(data[0]);
         this.setState({ cart: cart });
       });
   }
