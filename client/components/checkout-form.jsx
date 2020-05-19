@@ -43,7 +43,7 @@ class CheckoutForm extends React.Component {
           <label className="d-block font-weight-bold" htmlFor="address">Shipping Address</label>
           <textarea className="w-100 mb-3" onChange={this.handleChange} name="address" id="address" rows="4"></textarea>
           <div className='d-flex justify-content-between'>
-            <p className='text-secondary mb-3' onClick={() => this.props.setView('catalog', {})}>&lt; Continue Shopping</p>
+            <p className='pointer text-secondary mb-3' onClick={() => this.props.setView('catalog', {})}>&lt; Continue Shopping</p>
             <input type="submit" value="Place Order" className='btn btn-primary' />
           </div>
         </form>
