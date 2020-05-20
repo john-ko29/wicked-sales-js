@@ -4,6 +4,12 @@
   cursor: pointer;
 }
 
+.productCard:hover {
+  transition: 1s;
+  transform: scale(1.05);
+  border: 2px solid chartreuse;
+}
+
 .pointer {
   cursor: pointer;
 }
@@ -29,4 +35,10 @@
 .cartImage  {
   height: 100%;
   object-fit: contain;
+}
+
+@media screen and (max-width: 666px) {
+  .productCard {
+    width: 96%;
+  }
 }
