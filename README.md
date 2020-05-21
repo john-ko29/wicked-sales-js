@@ -15,9 +15,6 @@ Try the application live at https://wicked-sales.johnkode.com/
 * CSS3
 * AWS EC2
 
-### Live Deployment
-Work in Progress
-
 ### Features
 * User can view available products
 * User can see details on a product
