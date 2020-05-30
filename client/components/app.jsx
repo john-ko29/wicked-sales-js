@@ -4,6 +4,7 @@ import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
+import Confirmation from './confirmation';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -98,8 +99,10 @@ export default class App extends React.Component {
     }
     return (
       <div>
+        <Confirmation />
         <Header cartItemCount={this.state.cart.length} setView={this.setView} />
         {productPage}
+
       </div>
     );
   }
