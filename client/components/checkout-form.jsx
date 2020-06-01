@@ -11,7 +11,8 @@ class CheckoutForm extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
+    this.checkConfirm = this.checkConfirm.bind(this);
+    this.handleConfirm = this.handleConfirm.bind(this);
   }
 
   handleChange(event) {
@@ -34,6 +35,20 @@ class CheckoutForm extends React.Component {
     this.props.placeOrder(this.state);
   }
 
+  checkConfirm() {
+    let status = '';
+    if (this.state.isConfirm) {
+      status = this.handleSubmit;
+    }
+    return status;
+  }
+
+  handleConfirm() {
+    this.setState(state => ({
+      isConfirm: !state.isConfirm
+    }));
+  }
+
   render() {
     return (
       <div className='m-4'>
@@ -46,6 +61,9 @@ class CheckoutForm extends React.Component {
           <input className="form-control w-100 mb-3" onChange={this.handleChange} type="text" id="creditCard" name="creditCard" />
           <label className="d-block font-weight-bold" htmlFor="address">Shipping Address</label>
           <textarea className="form-control w-100 mb-3" onChange={this.handleChange} name="address" id="address" rows="4"></textarea>
+          <input type="checkbox" onClick={this.handleConfirm} id='confirmed' name='confirmed' className='mr-1'/>
+          <label htmlFor="confirmed">&#9;I understand that no real purchase is being made here, and
+          that I shoud and will not use any personal or sensitive information for the inputs above.</label>
           <div className='d-flex justify-content-between'>
             <p className='pointer text-secondary mb-3' onClick={() => this.props.setView('catalog', {})}>&lt; Continue Shopping</p>
             <input type="submit" value="Place Order" className='btn btn-primary' />
