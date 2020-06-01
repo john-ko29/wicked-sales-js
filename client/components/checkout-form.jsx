@@ -36,11 +36,9 @@ class CheckoutForm extends React.Component {
   }
 
   checkConfirm() {
-    let status = '';
     if (this.state.isConfirm) {
-      status = this.handleSubmit;
+      return <input type="submit" value="Place Order" className='btn btn-primary' />;
     }
-    return status;
   }
 
   handleConfirm() {
@@ -50,8 +48,9 @@ class CheckoutForm extends React.Component {
   }
 
   render() {
+    const submitStatus = this.checkConfirm();
     return (
-      <div className='m-4'>
+      <div className='header-padding m-4'>
         <h1>My Cart</h1>
         <h3 className='text-secondary'>Order Total: ${this.props.totalPrice}</h3>
         <form className="m-4" onSubmit={this.handleSubmit}>
@@ -66,7 +65,7 @@ class CheckoutForm extends React.Component {
           that I shoud and will not use any personal or sensitive information for the inputs above.</label>
           <div className='d-flex justify-content-between'>
             <p className='pointer text-secondary mb-3' onClick={() => this.props.setView('catalog', {})}>&lt; Continue Shopping</p>
-            <input type="submit" value="Place Order" className='btn btn-primary' />
+            {submitStatus}
           </div>
         </form>
 

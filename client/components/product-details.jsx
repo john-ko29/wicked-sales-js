@@ -28,7 +28,7 @@ class ProductDetails extends React.Component {
       const product = this.state.product;
       return (
         <div className="productDetails m-4 p-3">
-          <p className='text-secondary' onClick={() => this.props.setView('catalog', {})}>&lt; Back to Catalog</p>
+          <p className='pointer text-secondary' onClick={() => this.props.setView('catalog', {})}>&lt; Back to Catalog</p>
           <div className="row">
             <img src={product.image} className='col-6 detailImage'/>
             <div className='info-column col-6 d-flex flex-column justify-content-center'>

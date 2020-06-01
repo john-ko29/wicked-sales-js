@@ -4,7 +4,7 @@ import CartSummaryItem from './cart-summary-item';
 function CartSummary(props) {
   if (props.cart.length !== 0) {
     return (
-      <div className='m-4 d-flex flex-column'>
+      <div className='header-padding m-4 d-flex flex-column'>
         <p className='pointer text-secondary mb-3' onClick={() => props.setView('catalog', {})}>&lt; Back to Catalog</p>
         <h1>Cart Items</h1>
         {
