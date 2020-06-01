@@ -38,6 +38,29 @@
   object-fit: contain;
 }
 
+.modal-overlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+}
+
+.confirmation-modal {
+  border: 5px solid cornflowerblue;
+  text-align: center;
+  width: 50%;
+  padding: 10px;
+  color: white;
+  background-color: black;
+}
+
+.hidden {
+  display: none;
+}
+
 @media screen and (max-width: 666px) {
   .cartItem {
     font-size: .8rem;
