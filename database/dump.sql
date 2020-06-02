@@ -74,7 +74,8 @@ CREATE TABLE public."cartItems" (
     "cartItemId" integer NOT NULL,
     "cartId" integer NOT NULL,
     "productId" integer NOT NULL,
-    price integer NOT NULL
+    price integer NOT NULL,
+    quantity integer DEFAULT 1
 );
 
 
@@ -228,36 +229,36 @@ ALTER TABLE ONLY public.products ALTER COLUMN "productId" SET DEFAULT nextval('p
 -- Data for Name: cartItems; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
-1	19	5	9900
-2	20	5	9900
-3	21	5	9900
-4	22	5	9900
-5	23	5	9900
-6	24	5	9900
-7	25	5	9900
-8	26	5	9900
-9	27	5	9900
-10	28	5	9900
-11	29	5	9900
-12	29	5	9900
-13	29	5	9900
-14	29	5	9900
-15	29	5	9900
-16	29	5	9900
-17	30	3	2900
-18	30	2	2595
-19	33	3	2900
-20	31	5	9900
-21	31	1	2999
-22	32	5	9900
-23	33	2	2595
-24	33	1	2999
-25	33	1	2999
-26	33	1	2999
-27	34	2	2595
-28	35	3	2900
-29	36	3	2900
+COPY public."cartItems" ("cartItemId", "cartId", "productId", price, quantity) FROM stdin;
+2	20	5	9900	1
+3	21	5	9900	1
+4	22	5	9900	1
+5	23	5	9900	1
+6	24	5	9900	1
+7	25	5	9900	1
+8	26	5	9900	1
+9	27	5	9900	1
+10	28	5	9900	1
+11	29	5	9900	1
+12	29	5	9900	1
+13	29	5	9900	1
+14	29	5	9900	1
+15	29	5	9900	1
+16	29	5	9900	1
+17	30	3	2900	1
+18	30	2	2595	1
+19	33	3	2900	1
+20	31	5	9900	1
+21	31	1	2999	1
+22	32	5	9900	1
+23	33	2	2595	1
+24	33	1	2999	1
+25	33	1	2999	1
+26	33	1	2999	1
+27	34	2	2595	1
+28	35	3	2900	1
+33	36	2	2000	1
+34	36	3	2000	1
 \.
 
 
@@ -318,7 +319,7 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 29, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 34, true);
 
 
 --
