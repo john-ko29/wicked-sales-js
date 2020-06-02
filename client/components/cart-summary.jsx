@@ -17,6 +17,7 @@ function CartSummary(props) {
                 price={(cartItem.price / 100).toFixed(2)}
                 image={cartItem.image}
                 description={cartItem.shortDescription}
+                deleteCartItem={props.deleteCartItem}
               />
             );
           })

@@ -18,6 +18,7 @@ export default class App extends React.Component {
     this.addToCart = this.addToCart.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
     this.getTotalPrice = this.getTotalPrice.bind(this);
+    this.deleteCartItem = this.deleteCartItem.bind(this);
   }
 
   componentDidMount() {
@@ -75,6 +76,18 @@ export default class App extends React.Component {
       });
   }
 
+  deleteCartItem(cartItemId) {
+    const req = {
+      method: 'DELETE'
+    };
+
+    fetch(`/api/cart-item/${cartItemId}`, req);
+    const newCart = this.state.cart.slice();
+    const index = newCart.findIndex(item => item.cartItemId === cartItemId);
+    newCart.splice(index, 1);
+    this.setState({ cart: newCart });
+  }
+
   getTotalPrice() {
     let totalPrice = 0;
     if (this.state.cart[0]) {
@@ -93,7 +106,7 @@ export default class App extends React.Component {
     } else if (this.state.view.name === 'details') {
       productPage = <ProductDetails params={this.state.view.params} setView={this.setView} addToCart={this.addToCart} />;
     } else if (this.state.view.name === 'cart') {
-      productPage = <CartSummary cart={this.state.cart} setView={this.setView} totalPrice={totalPrice} />;
+      productPage = <CartSummary cart={this.state.cart} setView={this.setView} totalPrice={totalPrice} deleteCartItem={this.deleteCartItem}/>;
     } else if (this.state.view.name === 'checkout') {
       productPage = <CheckoutForm totalPrice={totalPrice} setView={this.setView} placeOrder={this.placeOrder}/>;
     }
