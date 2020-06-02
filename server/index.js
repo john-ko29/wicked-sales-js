@@ -184,6 +184,38 @@ app.post('/api/orders', (req, res, next) => {
   }
 });
 
+app.delete('/api/cart-item/:id', (req, res, next) => {
+  const { id } = req.params;
+  if (id <= 0) {
+    return res.status(400).json({
+      error: '"cartitemId" must be a positive integer'
+    });
+  }
+  const sql = `
+  DELETE FROM "cartItems"
+  WHERE       "cartItemId" = $1
+  RETURNING *;
+  `;
+  const params = [id];
+  db.query(sql, params)
+    .then(result => {
+      const cartItemResult = result.rows;
+      if (!cartItemResult[0]) {
+        res.status(404).json({
+          error: `cartItemId ${id} is not found`
+        });
+      } else {
+        res.status(200).json(cartItemResult);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({
+        error: 'An unexpected error occurred.'
+      });
+    });
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
