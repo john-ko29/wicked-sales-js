@@ -2,6 +2,14 @@ body {
   background-image: url(/images/background.jpg);
 }
 
+.white {
+  background-color: white;
+}
+
+.inline {
+  display: inline;
+}
+
 .header {
   background-color: #050177;
   position: fixed;

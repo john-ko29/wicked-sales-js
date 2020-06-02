@@ -29,7 +29,7 @@ class ProductDetails extends React.Component {
       return (
         <div className="productDetails m-4 p-3">
           <p className='pointer text-secondary' onClick={() => this.props.setView('catalog', {})}>&lt; Back to Catalog</p>
-          <div className="row">
+          <div className="row  white ">
             <img src={product.image} className='col-6 detailImage'/>
             <div className='info-column col-6 d-flex flex-column justify-content-center'>
               <h2>{product.name}</h2>
@@ -37,7 +37,7 @@ class ProductDetails extends React.Component {
               <p>{product.shortDescription}</p>
               <button className='btn btn-primary' onClick={() => this.props.addToCart({ productId: product.productId })}>Add to Cart</button>
             </div>
-            <p>{product.longDescription}</p>
+            <p className='p-1'>{product.longDescription}</p>
           </div>
         </div>
       );
