@@ -1,13 +1,34 @@
+body {
+  background-image: url(/images/background.jpg);
+}
+
+.header {
+  background-color: #050177;
+  position: fixed;
+  top: 0;
+  z-index: 500;
+  width: 100%;
+  height: 40px;
+}
+
+.header-padding {
+  padding-top: 50px;
+}
+
+.choco-image {
+  object-fit: contain;
+  height: 30px;
+}
+
 .productCard {
   width: 30%;
   height: 500px;
   cursor: pointer;
+  padding: 1rem;
 }
 
 .productCard:hover {
-  transition: 1s;
-  transform: scale(1.05);
-  border: 2px solid chartreuse;
+  border: 2px solid cornflowerblue;
 }
 
 .pointer {
@@ -27,10 +48,7 @@
 .cartItem {
   height: 300px;
   padding: 5px;
-}
-
-.dot {
-  border: 1px dotted grey;
+  background-color: white;
 }
 
 .cartImage  {
