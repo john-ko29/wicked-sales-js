@@ -9,7 +9,7 @@ function CartSummaryItem(props) {
         <h3 className='text-secondary'>${props.price}</h3>
         <p>{props.description}</p>
         <div className="row justify-content-end">
-          <button onClick={() => props.deleteCartItem(props.id)} className='btn btn-danger'>Delete</button>
+          <button onClick={() => props.deleteCartItem(props.id)} className='btn btn-danger mr-2'>Delete</button>
         </div>
       </div>
     </div>
