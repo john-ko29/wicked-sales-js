@@ -16,11 +16,11 @@ body {
   top: 0;
   z-index: 500;
   width: 100%;
-  height: 40px;
+  height: 70px;
 }
 
 .header-padding {
-  padding-top: 50px;
+  padding-top: 80px;
 }
 
 .choco-image {
@@ -30,13 +30,15 @@ body {
 
 .productCard {
   width: 30%;
-  height: 500px;
   cursor: pointer;
-  padding: 1rem;
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
 }
 
 .productCard:hover {
-  border: 2px solid cornflowerblue;
+  border: 2px solid #050177;
 }
 
 .pointer {
@@ -46,22 +48,32 @@ body {
 .cardImg {
   height: 50%;
   object-fit: contain;
+  background-color: white;
 }
 
 .detailImage {
-  height: 500px;
   object-fit: contain;
 }
 
 .cartItem {
-  height: 300px;
+  height: 200px;
   padding: 5px;
   background-color: white;
+  border: 1px solid #050177;
 }
 
 .cartImage  {
   height: 100%;
   object-fit: contain;
+}
+
+.button-buy {
+  width: 150px;
+  margin-bottom: .8rem;
+}
+
+.description {
+  border-top: 5px solid #050177;
 }
 
 .modal-overlay {
@@ -87,7 +99,16 @@ body {
   display: none;
 }
 
+@media screen and (min-width: 667px) {
+  .detailImage {
+    height: 300px;
+  }
+}
+
 @media screen and (max-width: 666px) {
+  .button-buy  {
+    align-self: center;
+  }
   .cartItem {
     font-size: .8rem;
     margin-right: 1px;
@@ -96,5 +117,30 @@ body {
 
   .productCard {
     width: 96%;
+  }
+
+  .productDetails {
+    width: 90%;
+  }
+
+  .detailImage{
+    width: 100%;
+  }
+
+  .info-column {
+    width: 100%;
+  }
+
+  .media-block  {
+    display: block;
+  }
+
+  .col-6 {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .cartItem {
+    height: 300px;
   }
 }
