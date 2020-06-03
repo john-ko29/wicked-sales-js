@@ -24,13 +24,13 @@ function CartSummary(props) {
         }
         <div className="row d-flex justify-content-between">
           <h3>Total Cost: ${props.totalPrice}</h3>
-          <button className='btn btn-primary w-25' onClick={() => props.setView('checkout', {})}>Checkout</button>
+          <button className='btn btn-primary' onClick={() => props.setView('checkout', {})}>Checkout</button>
         </div>
       </div>
     );
   } else {
     return (
-      <div className='m-4 d-flex flex-column'>
+      <div className='m-4 p-5 d-flex flex-column'>
         <h1>There are no items in your cart.</h1>
         <p className='pointer text-secondary mb-3' onClick={() => props.setView('catalog', {})}>&lt; Back to Catalog</p>
       </div>
