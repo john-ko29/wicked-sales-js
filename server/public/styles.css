@@ -144,3 +144,9 @@ body {
     height: 300px;
   }
 }
+
+@media screen and (max-width: 1025px) {
+  .cartItem {
+    max-width: 70%;
+  }
+}
