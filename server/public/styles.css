@@ -145,7 +145,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1025px) {
+@media screen and (min-width: 1025px) {
   .cartItem {
     max-width: 70%;
   }
