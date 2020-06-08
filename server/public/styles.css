@@ -72,10 +72,6 @@ body {
   margin-bottom: .8rem;
 }
 
-.description {
-  border-top: 5px solid #050177;
-}
-
 .modal-overlay {
   position: fixed;
   display: flex;
