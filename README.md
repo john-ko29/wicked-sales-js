@@ -1,6 +1,10 @@
 # wicked-sales-js
 A full stack Node.js and React shopping cart app.
 
+### Preview
+
+![Chocobo_Shop](server/public/images/demo.png)
+
 ### Live Demo
 
 Try the application live at https://wicked-sales.johnkode.com/
