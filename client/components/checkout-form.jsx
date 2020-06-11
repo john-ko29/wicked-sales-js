@@ -48,9 +48,9 @@ class CheckoutForm extends React.Component {
 
   render() {
     const submitStatus = this.checkConfirm();
-    let btnStatus = 'btn btn-primary disabled disabled-btn';
+    let btnStatus = 'btn btn-primary checkout-button disabled disabled-btn';
     if (submitStatus === 'submit') {
-      btnStatus = 'btn btn-primary';
+      btnStatus = 'btn btn-primary checkout-button';
     }
     return (
       <div className='header-padding m-4'>
@@ -66,7 +66,7 @@ class CheckoutForm extends React.Component {
           <input type="checkbox" onClick={this.handleConfirm} id='confirmed' name='confirmed' className='mr-1'/>
           <label className='inline' htmlFor="confirmed">&#9;I understand that no real purchase is being made here, and
           that I shoud and will not use any personal or sensitive information above.</label>
-          <div className='d-flex justify-content-between'>
+          <div className='d-flex justify-content-between mt-2'>
             <p className='pointer text-secondary mb-3' onClick={() => this.props.setView('catalog', {})}>&lt; Continue Shopping</p>
             <input type={submitStatus} value="Place Order" className={btnStatus} />
           </div>
